@@ -1,4 +1,10 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+
+// Body Parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // DB Configuration
 const mongoose = require("mongoose");
@@ -9,7 +15,6 @@ mongoose
   .catch(err => console.log("err"));
 
 // Routing
-const app = express();
 app.get("/", (req, res) => res.send("HELL!"));
 
 // Users Route
